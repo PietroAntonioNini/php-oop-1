@@ -1,7 +1,12 @@
 <?php
-require_once 'Models/Movie.php';
+require_once 'Models/movie.php';
+require_once 'Models/director.php';
 
+// creo oggetti 'Director'
+$nolan = new Director("Christopher", "Nolan", "British");
+
+// creo oggetti 'Movie' utilizzando gli oggetti 'Director'
 $movies = array(
-    new Movie("Inception", "Christopher Nolan", "Sci-Fi"),
-    new Movie("The Dark Knight", "Christopher Nolan", array("Action", "Thriller"))
+    new Movie("Inception", $nolan, "Sci-Fi"),
+    new Movie("The Dark Knight", $nolan, array("Action", "Thriller"))
 );

@@ -1,4 +1,7 @@
 <?php
+
+require_once 'director.php';
+
 class Movie {
     // Variabili d'istanza
     public $title;
@@ -6,7 +9,7 @@ class Movie {
     public $genres = array();
 
     // Costruttore
-    public function __construct($title, $director, $genres) {
+    public function __construct($title, Director $director, $genres) {
         $this->title = $title;
         $this->director = $director;
         $this->genres = is_array($genres) ? $genres : array($genres);

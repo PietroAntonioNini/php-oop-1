@@ -1,5 +1,6 @@
 <?php
 require_once 'db.php';
+require_once 'Models/movie.php';
 ?>
 <!DOCTYPE html>
 <html lang="it" data-bs-theme="dark">
@@ -13,14 +14,14 @@ require_once 'db.php';
 </head>
 <body>
     <div class="text-center">
-        
+
         <h1 class="fs-1 mt-5 mb-5">Movie</h1>
 
         <!-- stampo i risultati in pagina -->
         <div class="mt-3 fs-4">
             <?php
                 foreach ($movies as $movie) {
-                    echo "<p class='mb-4'> Titolo: " . $movie->title . ", Regista: " . $movie->director . ", Generi: " . $movie->getGenres() . "</p>";
+                    echo "<p class='mb-4'> Titolo: " . $movie->title . ", Regista: ". $movie->director->getFullName() . ", Generi: " . $movie->getGenres() . "</p>";
                 }
             ?>
         </div>
