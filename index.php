@@ -4,24 +4,24 @@ class Movie {
     // variabili d'istanza
     public $title;
     public $director;
-    public $genre;
+    public $genres = array();
 
     // costruttore
-    public function __construct($title, $director, $genre) {
+    public function __construct($title, $director, $genres) {
         $this->title = $title;
         $this->director = $director;
-        $this->genre = $genre;
+        $this->genres = is_array($genres) ? $genres : array($genres);
     }
 
     // metodo
-    public function getGenre() {
-        return $this->genre;
+    public function getGenres() {
+        return implode(", ", $this->genres);
     }
 }
 
 // istanzio due oggetti 'Movie'
 $movie1 = new Movie("Inception", "Christopher Nolan", "Sci-Fi");
-$movie2 = new Movie("The Dark Knight", "Christopher Nolan", "Action");
+$movie2 = new Movie("The Dark Knight", "Christopher Nolan", array("Action", "Thriller"));
 ?>
 
 <!DOCTYPE html>
@@ -40,8 +40,8 @@ $movie2 = new Movie("The Dark Knight", "Christopher Nolan", "Action");
 
         <!-- stampo i risultati in pagina -->
         <div class="mt-3 fs-4">
-            <p class="mb-4"><?php echo "Titolo: " . $movie1->title . ", Regista: " . $movie1->director . ", Genere: " . $movie1->getGenre() . "\n"; ?></p>
-            <p><?php echo "Titolo: " . $movie2->title . ", Regista: " . $movie2->director . ", Genere: " . $movie2->getGenre() . "\n"; ?></p>
+            <p class="mb-4"><?php echo "Titolo: " . $movie1->title . ", Regista: " . $movie1->director . ", Generi: " . $movie1->getGenres() . "\n"; ?></p>
+            <p><?php echo "Titolo: " . $movie2->title . ", Regista: " . $movie2->director . ", Generi: " . $movie2->getGenres() . "\n"; ?></p>
         </div>
 
         
